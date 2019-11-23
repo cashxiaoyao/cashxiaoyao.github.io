@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>数组的克隆 | 菜鸟之路</title>
+    <meta name="description" content="菜鸟的前端进阶之路">
+    <link rel="icon" href="/timg.jpg">
+    
+    <link rel="preload" href="/assets/css/0.styles.0c186b4c.css" as="style"><link rel="preload" href="/assets/js/app.ecd86483.js" as="script"><link rel="preload" href="/assets/js/2.a474123e.js" as="script"><link rel="preload" href="/assets/js/7.f922ac76.js" as="script"><link rel="prefetch" href="/assets/js/10.ecb85a1f.js"><link rel="prefetch" href="/assets/js/11.ccd39998.js"><link rel="prefetch" href="/assets/js/12.5e8ca8b3.js"><link rel="prefetch" href="/assets/js/13.0c843555.js"><link rel="prefetch" href="/assets/js/14.1d643e5a.js"><link rel="prefetch" href="/assets/js/3.0bb2c87d.js"><link rel="prefetch" href="/assets/js/4.5c6eab2f.js"><link rel="prefetch" href="/assets/js/5.7a32d957.js"><link rel="prefetch" href="/assets/js/6.d721701c.js"><link rel="prefetch" href="/assets/js/8.506351f4.js"><link rel="prefetch" href="/assets/js/9.a2a505dc.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.0c186b4c.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><img src="/timg.jpg" alt="菜鸟之路" class="logo"> <span class="site-name can-hide">菜鸟之路</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="https://github.com/dwanda" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/" class="nav-link">首页</a></div><div class="nav-item"><a href="https://github.com/dwanda" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <ul class="sidebar-links"><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>设计模式</span> <span class="arrow right"></span></p> <!----></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading open"><span>封装函数</span> <span class="arrow down"></span></p> <ul class="sidebar-links sidebar-group-items"><li><a href="/pages/array/clone.html" class="active sidebar-link">数组克隆</a><ul class="sidebar-sub-headers"><li class="sidebar-sub-header"><a href="/pages/array/clone.html#数组的克隆" class="sidebar-link">数组的克隆</a></li></ul></li><li><a href="/pages/array/router.html" class="sidebar-link">模拟路由封装</a></li></ul></section></li><li><section class="sidebar-group collapsable depth-0"><p class="sidebar-heading"><span>grid布局</span> <span class="arrow right"></span></p> <!----></section></li></ul> </aside> <main class="page"> <div class="theme-default-content content__default"><h2 id="数组的克隆"><a href="#数组的克隆" class="header-anchor">#</a> 数组的克隆</h2> <h3 id="数组的简单克隆"><a href="#数组的简单克隆" class="header-anchor">#</a> 数组的简单克隆</h3> <div class="language-js extra-class"><pre class="language-js"><code>    <span class="token keyword">function</span> <span class="token function">clone</span><span class="token punctuation">(</span><span class="token parameter">obj</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> target <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> key <span class="token keyword">in</span> obj<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>object<span class="token punctuation">.</span><span class="token function">hasOwnProperty</span><span class="token punctuation">(</span>key<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">typeof</span> obj<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">===</span> <span class="token string">'object'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+               target<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">clone</span><span class="token punctuation">(</span>obj<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                target<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> obj<span class="token punctuation">[</span>key<span class="token punctuation">]</span>
+           <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> target
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="数组的最全类型的克隆版本"><a href="#数组的最全类型的克隆版本" class="header-anchor">#</a> 数组的最全类型的克隆版本</h3> <div class="language-js extra-class"><pre class="language-js"><code><span class="token keyword">const</span> mapTag <span class="token operator">=</span> <span class="token string">'[object Map]'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> setTag <span class="token operator">=</span> <span class="token string">'[object Set]'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> arrayTag <span class="token operator">=</span> <span class="token string">'[object Array]'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> objectTag <span class="token operator">=</span> <span class="token string">'[object Object]'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> argsTag <span class="token operator">=</span> <span class="token string">'[object Arguments]'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> boolTag <span class="token operator">=</span> <span class="token string">'[object Boolean]'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> dateTag <span class="token operator">=</span> <span class="token string">'[object Date]'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> numberTag <span class="token operator">=</span> <span class="token string">'[object Number]'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> stringTag <span class="token operator">=</span> <span class="token string">'[object String]'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> symbolTag <span class="token operator">=</span> <span class="token string">'[object Symbol]'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> errorTag <span class="token operator">=</span> <span class="token string">'[object Error]'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> regexpTag <span class="token operator">=</span> <span class="token string">'[object RegExp]'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> funcTag <span class="token operator">=</span> <span class="token string">'[object Function]'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> deepTag <span class="token operator">=</span> <span class="token punctuation">[</span>mapTag<span class="token punctuation">,</span> setTag<span class="token punctuation">,</span> arrayTag<span class="token punctuation">,</span> objectTag<span class="token punctuation">,</span> argsTag<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+
+<span class="token keyword">function</span> <span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">array<span class="token punctuation">,</span> iteratee</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> length <span class="token operator">=</span> array<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+    <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token operator">++</span>index <span class="token operator">&lt;</span> length<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">iteratee</span><span class="token punctuation">(</span>array<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">,</span> index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> array<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">isObject</span><span class="token punctuation">(</span><span class="token parameter">target</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> type <span class="token operator">=</span> <span class="token keyword">typeof</span> target<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> target <span class="token operator">!==</span> <span class="token keyword">null</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> <span class="token string">'object'</span> <span class="token operator">||</span> type <span class="token operator">===</span> <span class="token string">'function'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">getType</span><span class="token punctuation">(</span><span class="token parameter">target</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token class-name">Object</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">getInit</span><span class="token punctuation">(</span><span class="token parameter">target</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> Ctor <span class="token operator">=</span> target<span class="token punctuation">.</span>constructor<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Ctor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">cloneSymbol</span><span class="token punctuation">(</span><span class="token parameter">targe</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token function">Object</span><span class="token punctuation">(</span><span class="token class-name">Symbol</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">.</span><span class="token function">call</span><span class="token punctuation">(</span>targe<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">cloneReg</span><span class="token punctuation">(</span><span class="token parameter">targe</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> reFlags <span class="token operator">=</span> <span class="token regex">/\w*$/</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">targe<span class="token punctuation">.</span>constructor</span><span class="token punctuation">(</span>targe<span class="token punctuation">.</span>source<span class="token punctuation">,</span> reFlags<span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span>targe<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    result<span class="token punctuation">.</span>lastIndex <span class="token operator">=</span> targe<span class="token punctuation">.</span>lastIndex<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> result<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">cloneFunction</span><span class="token punctuation">(</span><span class="token parameter">func</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> bodyReg <span class="token operator">=</span> <span class="token regex">/(?&lt;={)(.|\n)+(?=})/m</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> paramReg <span class="token operator">=</span> <span class="token regex">/(?&lt;=\().+(?=\)\s+{)/</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> funcString <span class="token operator">=</span> func<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>func<span class="token punctuation">.</span>prototype<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> param <span class="token operator">=</span> paramReg<span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span>funcString<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> body <span class="token operator">=</span> bodyReg<span class="token punctuation">.</span><span class="token function">exec</span><span class="token punctuation">(</span>funcString<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>body<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>param<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">const</span> paramArr <span class="token operator">=</span> param<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">','</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Function</span><span class="token punctuation">(</span><span class="token operator">...</span>paramArr<span class="token punctuation">,</span> body<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Function</span><span class="token punctuation">(</span>body<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">eval</span><span class="token punctuation">(</span>funcString<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">cloneOtherType</span><span class="token punctuation">(</span><span class="token parameter">targe<span class="token punctuation">,</span> type</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> Ctor <span class="token operator">=</span> targe<span class="token punctuation">.</span>constructor<span class="token punctuation">;</span>
+    <span class="token keyword">switch</span> <span class="token punctuation">(</span>type<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">case</span> boolTag<span class="token punctuation">:</span>
+        <span class="token keyword">case</span> numberTag<span class="token punctuation">:</span>
+        <span class="token keyword">case</span> stringTag<span class="token punctuation">:</span>
+        <span class="token keyword">case</span> errorTag<span class="token punctuation">:</span>
+        <span class="token keyword">case</span> dateTag<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token keyword">new</span> <span class="token class-name">Ctor</span><span class="token punctuation">(</span>targe<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> regexpTag<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token function">cloneReg</span><span class="token punctuation">(</span>targe<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> symbolTag<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token function">cloneSymbol</span><span class="token punctuation">(</span>targe<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">case</span> funcTag<span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token function">cloneFunction</span><span class="token punctuation">(</span>targe<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">default</span><span class="token punctuation">:</span>
+            <span class="token keyword">return</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">function</span> <span class="token function">clone</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">WeakMap</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token comment">// 克隆原始类型</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span><span class="token function">isObject</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> target<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 初始化</span>
+    <span class="token keyword">const</span> type <span class="token operator">=</span> <span class="token function">getType</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">let</span> cloneTarget<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>deepTag<span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>type<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        cloneTarget <span class="token operator">=</span> <span class="token function">getInit</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> type<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token function">cloneOtherType</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> type<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 防止循环引用</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>map<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> target<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    map<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>target<span class="token punctuation">,</span> cloneTarget<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 克隆set</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> setTag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        target<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">value</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            cloneTarget<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token function">clone</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> cloneTarget<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 克隆map</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> mapTag<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        target<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">value<span class="token punctuation">,</span> key</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+            cloneTarget<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span>key<span class="token punctuation">,</span> <span class="token function">clone</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> cloneTarget<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token comment">// 克隆对象和数组</span>
+    <span class="token keyword">const</span> keys <span class="token operator">=</span> type <span class="token operator">===</span> arrayTag <span class="token operator">?</span> <span class="token keyword">undefined</span> <span class="token punctuation">:</span> Object<span class="token punctuation">.</span><span class="token function">keys</span><span class="token punctuation">(</span>target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token function">forEach</span><span class="token punctuation">(</span>keys <span class="token operator">||</span> target<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">value<span class="token punctuation">,</span> key</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>keys<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            key <span class="token operator">=</span> value<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        cloneTarget<span class="token punctuation">[</span>key<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">clone</span><span class="token punctuation">(</span>target<span class="token punctuation">[</span>key<span class="token punctuation">]</span><span class="token punctuation">,</span> map<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> cloneTarget<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+    clone
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <div class="page-nav"><p class="inner"><span class="prev">
+      ←
+      <a href="/pages/moshi/myBus.html" class="prev">EventBus(观察者模式)</a></span> <span class="next"><a href="/pages/array/router.html">模拟路由封装</a>
+      →
+    </span></p></div> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.ecd86483.js" defer></script><script src="/assets/js/2.a474123e.js" defer></script><script src="/assets/js/7.f922ac76.js" defer></script>
+  </body>
+</html>
